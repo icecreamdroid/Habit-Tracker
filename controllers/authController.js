@@ -1,9 +1,13 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const { addCigarettes } = require("./habitController");
+require("./habitController").addCigarettes;
 
 exports.signup = async (req, res, next) => {
-  User.create({...req.body,habit:[]})
+  User.create({...req.body})
     .then((newUser) => {
+      console.log(newUser);
+        addCigarettes("cigarettes","number",newUser._id)
       res.status(201).json({
         status: "success",
         data: {
@@ -12,6 +16,7 @@ exports.signup = async (req, res, next) => {
       });
     })
     .catch((err) => {
+      console.log(err);
       res.status(400).json({
         message: "The User already exists Brotha, get some new details for me",
         error: err,
