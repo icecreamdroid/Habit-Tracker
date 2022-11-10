@@ -3,7 +3,7 @@ const User = require("../models/User");
 
 exports.getUserById = async (req, res, next) => {
   console.log(req.query);
-  User.findOne({ contact_number: req.query.contact_number })
+  User.findById(req.userId)
     .select("name contact_number habit")
     .exec()
     .then((user) => {
