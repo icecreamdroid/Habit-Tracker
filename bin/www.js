@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 userRoutes = require('../routes/users');
 habitRoutes = require('../routes/habits');
-const j =require('../utils/updateLogs');
 /**
  * Module dependencies.
  */
@@ -105,6 +104,5 @@ function onListening() {
 }
 
 //Routes
-j();
 app.use('/api/v1/users',userRoutes);
 app.use('/api/v1/habits',habitRoutes);
