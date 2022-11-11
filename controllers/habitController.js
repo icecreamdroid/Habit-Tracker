@@ -9,7 +9,7 @@ exports.addHabit = async (req, res, next) => {
     users: req.userId,
     log: [],
   };
-  const newHabitDoc = await HabitModel.create(HabitDocTemplate);
+  var newHabitDoc = await HabitModel.create(HabitDocTemplate);
   const logDoc = await LogModel.create({
     habit: newHabitDoc._id,
     amount: 0,
@@ -61,7 +61,7 @@ exports.updateHabit = async (req, res, next) => {
     .exec()
     .then((result) => {
       if ("log" in result) {
-        LogModel.findByIdAndUpdate(result.log[0], updatedProps, {
+        LogModel.findByIdAndUpdate(result.log[result.log.length-1], updatedProps, {
           new: true,
         }).then((response) => {
           console.log(response);

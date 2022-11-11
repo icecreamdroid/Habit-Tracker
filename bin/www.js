@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 userRoutes = require('../routes/users');
 habitRoutes = require('../routes/habits');
+const j =require('../utils/updateLogs');
 /**
  * Module dependencies.
  */
-
+ '../utils/updateLogs';
 var app = require('../app');
 var debug = require('debug')('cig-track:server');
 var http = require('http');
@@ -104,6 +105,6 @@ function onListening() {
 }
 
 //Routes
-
+j();
 app.use('/api/v1/users',userRoutes);
 app.use('/api/v1/habits',habitRoutes);
