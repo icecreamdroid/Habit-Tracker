@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 userRoutes = require('../routes/users');
 habitRoutes = require('../routes/habits');
+const j =require('../utils/updateLogs');
 /**
  * Module dependencies.
  */

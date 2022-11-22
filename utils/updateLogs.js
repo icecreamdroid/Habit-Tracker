@@ -4,8 +4,8 @@ const HabitModel = require("../models/Habits");
 const LogModel = require("../models/Log");
 const { update } = require("../models/Log");
 
-const job = schedule.scheduleJob("* * * * * *", (date) => {
-  // updateLogs();
+const job = schedule.scheduleJob("0 0 0 * * *", (date) => {
+  updateLogs();
 });
 
 updateLogs = async () => {
@@ -27,4 +27,4 @@ updateLogs = async () => {
   }
 };
 
-module.exports = updateLogs;
+module.exports = job;
